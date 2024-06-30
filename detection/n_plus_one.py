@@ -1,13 +1,38 @@
 import json
 
 
-def load_jaeger_data(file_path):
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-    return data
+def load_jaeger_trace(file_path: str) -> dict:
+    """
+    Load Jaeger trace data from a JSON file.
+
+    Args:
+        file_path (str): Path to the JSON file containing the Jaeger trace data.
+
+    Returns:
+        dict: The loaded Jaeger trace data.
+    """
+    with open(file_path, 'r') as trace_file:
+        jaeger_data = json.load(trace_file)
+    return jaeger_data
 
 
-def detect_nplus1_queries(jaeger_data):
+def detect_nplus1_queries(jaeger_data: dict) -> list:
+    """
+    Detect N+1 queries in Jaeger trace data.
+
+    This function analyzes the Jaeger trace data to identify instances of N+1 queries, where
+    multiple database statements are executed as a single query. The function returns a list
+    of dictionaries, each representing an N+1 query issue with the following fields:
+        - `trace_id`: The ID of the trace containing the N+1 query.
+        - `query`: The SQL statement or query that was executed multiple times.
+        - `count`: The number of times the query was executed.
+
+    Args:
+        jaeger_data (dict): Jaeger trace data in JSON format.
+
+    Returns:
+        list: A list of dictionaries representing N+1 query issues found in the trace data.
+    """
     nplus1_issues = []
 
     for trace in jaeger_data.get('data', []):
@@ -37,7 +62,7 @@ def detect_nplus1_queries(jaeger_data):
 
 def main():
     file_path = '../trace_exploration/traces/trace_generate_pairs_with_error.json'
-    jaeger_data = load_jaeger_data(file_path)
+    jaeger_data = load_jaeger_trace(file_path)
     nplus1_issues = detect_nplus1_queries(jaeger_data)
 
     print("Detected N+1 Queries:")
