@@ -27,8 +27,8 @@ plt.figure(figsize=(10, 8))
 pos = nx.spring_layout(G)
 nx.draw(G, pos, with_labels=True, node_size=3000, node_color="skyblue", font_size=10, font_weight="bold")
 plt.title("Service Dependency Graph")
-plt.show()
 plt.savefig('../docs/Service Dependency Graph.png')
+plt.show()
 
 # Identify services with high error rates
 error_services = set()
