@@ -1,8 +1,8 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from detection.data_loader import DataLoader
+from utils import JAEGER_LOG_PATH_WITH_ERROR
 
-JAEGER_LOG_PATH_WITH_ERROR = '../trace_exploration/traces/trace_generate_pairs_with_error.json'
 
 # Create a directed graph
 G = nx.DiGraph()

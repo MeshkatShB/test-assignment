@@ -1,4 +1,5 @@
 import json
+from utils import JAEGER_LOG_PATH_WITH_ERROR
 
 
 def load_jaeger_trace(file_path: str) -> dict:
@@ -61,7 +62,7 @@ def detect_nplus1_queries(jaeger_data: dict) -> list:
 
 
 def main():
-    file_path = '../trace_exploration/traces/trace_generate_pairs_with_error.json'
+    file_path = JAEGER_LOG_PATH_WITH_ERROR
     jaeger_data = load_jaeger_trace(file_path)
     nplus1_issues = detect_nplus1_queries(jaeger_data)
 
