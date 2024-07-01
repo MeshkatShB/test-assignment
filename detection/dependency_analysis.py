@@ -1,7 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from detection.data_loader import DataLoader
-from utils import JAEGER_LOG_PATH_WITH_ERROR
+from utils import JAEGER_LOG_PATH_WITH_ERROR, BASE_PATH
 
 
 # Create a directed graph
@@ -27,7 +27,7 @@ plt.figure(figsize=(10, 8))
 pos = nx.spring_layout(G)
 nx.draw(G, pos, with_labels=True, node_size=3000, node_color="skyblue", font_size=10, font_weight="bold")
 plt.title("Service Dependency Graph")
-plt.savefig('../docs/Service Dependency Graph.png')
+plt.savefig(BASE_PATH + '/docs/Service Dependency Graph.png')
 plt.show()
 
 # Identify services with high error rates
