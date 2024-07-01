@@ -50,3 +50,24 @@
 - [Next Task 2] - 
 
 ---
+
+## Day 5 - [30/06/2024]
+### Tasks Completed
+- [Task 1] - Implemented dataloader module
+- [Task 2] - Implemented long span duration detection
+- [Task 3] - Implemented dependency analysis using graph structure of spans and show it via networkx
+- [Task 4] - Implemented HTTP error detection
+- [Task 5] - Implemented correlation finder between errors and other metrics (in this example, Dev time)
+
+### Blockers
+- [Blocker 1] - The only usefulness of LivePlugin was notification-based prompts 
+- [Blocker 2] - Can't use DataDog due to restrictions in my country (attempted sign-in and installed the plugin
+but it didn't work)
+- [Blocker 3] - DigmaAI is only available on IntelliJ IDEA
+
+### Next Steps
+- [Next Task 1] - Making all detections a plugin
+- [Next Task 2] - Implementing LLM solutions in experiment/ml-approach
+
+---
+
