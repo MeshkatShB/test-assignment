@@ -72,3 +72,21 @@ but it didn't work)
 
 ---
 
+## Day 6 - [01/07/2024]
+### Tasks Completed
+- [Task 1] - Implemented ML approach: K-means, AutoEncoder, VAE, and LOF anomaly detection
+- [Task 2] - Added a comprehensive DataLoader
+- [Task 3] - Implemented plugins via LivePlugin for all detectors
+- [Task 4] - Implemented dependency analysis
+- [Task 5] - Implemented error correlation
+- [Task 6] - Implemented Jaeger API call detection
+- [Task 7] - Implemented error detection via OpenTelemetry library
+- [Task 8] - Implemented LLM-based approach with BERT to detect anomaly.
+
+### Blockers
+- [Blocker 1] - Can't use chatGPT for getting their embedding due to restrictions in my country
+
+### Next Steps
+- [Next Task 1] - Use GPT
+
+---
