@@ -6,7 +6,7 @@ JAEGER_LOG_PATH_WITH_ERROR = '../trace_exploration/traces/trace_generate_pairs_w
 
 # Create a directed graph
 G = nx.DiGraph()
-traces = DataLoader.load_data(JAEGER_LOG_PATH_WITH_ERROR)
+traces = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_traces()
 
 
 # Extract services and their dependencies
