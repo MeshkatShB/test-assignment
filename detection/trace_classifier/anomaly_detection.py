@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-
 from detection.data_loader import DataLoader
+from detection.utils import JAEGER_LOG_PATH_WITH_ERROR
 from sklearn.cluster import KMeans
 from sklearn.ensemble import IsolationForest
 from sklearn.neighbors import LocalOutlierFactor
@@ -11,7 +11,6 @@ from tensorflow.keras.losses import MeanSquaredError
 from tensorflow.keras.models import Model
 
 
-JAEGER_LOG_PATH_WITH_ERROR = '../../trace_exploration/traces/trace_generate_pairs_with_error.json'
 span_durations = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_spans()
 
 
