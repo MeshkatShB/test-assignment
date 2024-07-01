@@ -1,7 +1,6 @@
 import re
 from detection.data_loader import DataLoader
-
-JAEGER_LOG_PATH_WITH_ERROR = '../../trace_exploration/traces/trace_generate_pairs_with_error.json'
+from detection.utils import JAEGER_LOG_PATH_WITH_ERROR
 
 
 traces = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_traces()

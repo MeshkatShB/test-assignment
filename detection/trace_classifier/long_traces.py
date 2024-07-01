@@ -1,7 +1,5 @@
 from detection.data_loader import DataLoader
-
-JAEGER_LOG_PATH_WITH_ERROR = '../../trace_exploration/traces/trace_generate_pairs_with_error.json'
-TRACE_DURATION_THRESHOLD = 1000
+from detection.utils import JAEGER_LOG_PATH_WITH_ERROR, TRACE_DURATION_THRESHOLD
 
 traces = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_traces()
 long_traces = []
