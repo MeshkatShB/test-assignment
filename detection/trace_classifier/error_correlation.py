@@ -1,17 +1,17 @@
 import pandas as pd
 from detection.data_loader import DataLoader
-import time
+
+JAEGER_LOG_PATH_WITH_ERROR = '../../trace_exploration/traces/trace_generate_pairs_with_error.json'
 
 
-# Sample deployment events
+# Example for Dev time:
 deployments = {
     "2024-06-29": "v1.0.0",
     "2024-06-30": "v1.1.0"
 }
 
-JAEGER_LOG_PATH_WITH_ERROR = '../../trace_exploration/traces/trace_generate_pairs_with_error.json'
 
-traces = DataLoader.load_data(JAEGER_LOG_PATH_WITH_ERROR)
+traces = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_traces()
 
 # Extract errors with timestamps
 errors = []
