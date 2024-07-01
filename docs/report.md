@@ -58,6 +58,7 @@
 - [Task 3] - Implemented dependency analysis using graph structure of spans and show it via networkx
 - [Task 4] - Implemented HTTP error detection
 - [Task 5] - Implemented correlation finder between errors and other metrics (in this example, Dev time)
+- [Task 6] - Implemented anomaly detection based on IsolationForest for ML detection approaches
 
 ### Blockers
 - [Blocker 1] - The only usefulness of LivePlugin was notification-based prompts 
