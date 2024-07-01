@@ -12,12 +12,7 @@ from tensorflow.keras.models import Model
 
 
 JAEGER_LOG_PATH_WITH_ERROR = '../../trace_exploration/traces/trace_generate_pairs_with_error.json'
-
-
-traces = DataLoader.load_data(JAEGER_LOG_PATH_WITH_ERROR)
-
-# Collect durations of all spans
-span_durations = [span["duration"] for trace in traces for span in trace["spans"]]
+span_durations = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_spans()
 
 
 def isolation_forest():
