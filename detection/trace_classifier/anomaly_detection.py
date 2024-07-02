@@ -15,6 +15,9 @@ span_durations = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_spans()
 
 
 def isolation_forest():
+    """
+    The function `isolation_forest` uses Isolation Forest algorithm to detect anomalies in span durations data.
+    """
     # Convert to 2D array for IsolationForest
     X = np.array(span_durations).reshape(-1, 1)
 
@@ -34,6 +37,9 @@ def isolation_forest():
 
 
 def k_means():
+    """
+    The function `k_means` uses K-Means clustering to detect anomalies in span durations data.
+    """
     # Convert to 2D array
     X = np.array(span_durations).reshape(-1, 1)
     # Fit the K-Means model
@@ -50,6 +56,9 @@ def k_means():
 
 
 def auto_encoder():
+    """
+    The `auto_encoder` function implements an autoencoder model for anomaly detection on span durations data.
+    """
     # Normalize the data
     X = np.array(span_durations).reshape(-1, 1).astype(float)
     X = (X - X.min()) / (X.max() - X.min())
@@ -88,6 +97,9 @@ def auto_encoder():
 
 
 def variational_auto_encoder():
+    """
+    The function `variational_auto_encoder` implements a Variational Autoencoder model for anomaly detection on span durations data.
+    """
     # Normalize the data
     X = np.array(span_durations).reshape(-1, 1).astype(float)
     X = (X - X.min()) / (X.max() - X.min())
@@ -150,6 +162,9 @@ def variational_auto_encoder():
 
 
 def local_outlier_factor():
+    """
+    The function `local_outlier_factor` uses the Local Outlier Factor algorithm to detect anomalies in span durations and prints the anomalous span durations.
+    """
     # Convert to 2D array
     X = np.array(span_durations).reshape(-1, 1)
 
