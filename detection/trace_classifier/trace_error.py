@@ -7,6 +7,19 @@ data = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_traces()
 
 
 def extract_errors_warnings_exceptions(trace_data):
+    """
+    The function `extract_errors_warnings_exceptions` parses trace data to extract errors, warnings, and
+    exceptions along with relevant information.
+    
+    :param trace_data: Trace data is a collection of spans that represent the execution of operations
+    within a distributed system. Each span contains information such as span ID, trace ID, operation
+    name, tags, logs, start time, and duration. The function `extract_errors_warnings_exceptions`
+    iterates through the trace data to identify and
+    :return: The function `extract_errors_warnings_exceptions` returns a list of dictionaries, where
+    each dictionary represents an issue found in the trace data. The dictionaries contain information
+    about the type of issue (error, warning, or exception), the span ID, trace ID, operation name, start
+    time, duration, and a message describing the issue.
+    """
     issues = []
 
     for trace in trace_data :
