@@ -1,7 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from detection.data_loader import DataLoader
-from utils import JAEGER_LOG_PATH_WITH_ERROR, BASE_PATH
+from detection.utils import JAEGER_LOG_PATH_WITH_ERROR, BASE_PATH
 
 
 # Create a directed graph
