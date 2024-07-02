@@ -5,20 +5,18 @@ from detection.data_loader import DataLoader
 
 def detect_nplus1_queries(jaeger_data: dict) -> list:
     """
-    Detect N+1 queries in Jaeger trace data.
-
-    This function analyzes the Jaeger trace data to identify instances of N+1 queries, where
-    multiple database statements are executed as a single query. The function returns a list
-    of dictionaries, each representing an N+1 query issue with the following fields:
-        - `trace_id`: The ID of the trace containing the N+1 query.
-        - `query`: The SQL statement or query that was executed multiple times.
-        - `count`: The number of times the query was executed.
-
-    Args:
-        jaeger_data (dict): Jaeger trace data in JSON format.
-
-    Returns:
-        list: A list of dictionaries representing N+1 query issues found in the trace data.
+    The function `detect_nplus1_queries` analyzes Jaeger trace data to detect N+1 query issues and
+    returns a list of problematic queries with their counts and corresponding trace IDs.
+    
+    :param jaeger_data: The `detect_nplus1_queries` function you provided is designed to detect N+1
+    query issues in Jaeger trace data. It iterates through the traces in the Jaeger data, extracts
+    database queries from spans, and identifies queries that are executed more than once within a single
+    trace
+    :type jaeger_data: dict
+    :return: The `detect_nplus1_queries` function returns a list of dictionaries, where each dictionary
+    represents a potential N+1 query issue detected in the Jaeger data. Each dictionary contains the
+    trace ID, the query statement that was executed multiple times, and the count of how many times it
+    was executed in the trace.
     """
     nplus1_issues = []
 
@@ -48,6 +46,10 @@ def detect_nplus1_queries(jaeger_data: dict) -> list:
 
 
 def main():
+    """
+    The `main` function loads Jaeger log data, detects N+1 query issues, and prints out the detected N+1
+    queries with their trace IDs, queries, and counts.
+    """
     jaeger_data = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_traces()
     nplus1_issues = detect_nplus1_queries(jaeger_data)
 

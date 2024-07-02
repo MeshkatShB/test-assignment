@@ -6,6 +6,17 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExport
 
 
 def configure_tracer(service_name):
+    """
+    The function `configure_tracer` sets up a Jaeger exporter and tracer provider for tracing in a
+    Python application.
+    
+    :param service_name: The `service_name` parameter is a string that represents the name of the
+    service for which you are configuring the tracer. This name will be used to identify the service in
+    the tracing system and in the exported traces
+    :return: The `configure_tracer` function returns a tracer object that is created and configured with
+    a Jaeger exporter, a tracer provider with specified service name, and span processors for batch
+    processing with Jaeger exporter and ConsoleSpanExporter.
+    """
     # Set up Jaeger exporter
     jaeger_exporter = JaegerExporter(
         agent_host_name="localhost",

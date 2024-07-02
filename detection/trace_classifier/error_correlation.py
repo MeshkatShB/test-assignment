@@ -10,22 +10,27 @@ deployments = {
 }
 
 
-traces = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_traces()
+def main():
+    """
+    The main function extracts errors from Jaeger logs and correlates them with deployment versions.
+    """
+    traces = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_traces()
 
-# Extract errors with timestamps
-errors = []
-for trace in traces:
-    for span in trace["spans"]:
-        if any(tag["key"] == "error" and tag["value"] is True for tag in span["tags"]):
-            errors.append({"timestamp": span["startTime"], "service": span["operationName"]})
+    # Extract errors with timestamps
+    errors = []
+    for trace in traces:
+        for span in trace["spans"]:
+            if any(tag["key"] == "error" and tag["value"] is True for tag in span["tags"]):
+                errors.append({"timestamp": span["startTime"], "service": span["operationName"]})
+
+    errors_df = pd.DataFrame(errors)
+
+    for date, version in deployments.items():
+        errors_df.loc[errors_df["timestamp"] == pd.to_datetime(date).date(), "deployment"] = version
+
+    print("Errors with Deployment Correlation:")
+    print(errors_df)
 
 
-# Create a DataFrame
-errors_df = pd.DataFrame(errors)
-
-# Add deployment events to DataFrame
-for date, version in deployments.items():
-    errors_df.loc[errors_df["timestamp"] == pd.to_datetime(date).date(), "deployment"] = version
-
-print("Errors with Deployment Correlation:")
-print(errors_df)
+if __name__ == "__main__":
+    main()
