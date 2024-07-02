@@ -105,3 +105,35 @@ To get started with the Detection Service, follow these steps:
 
 ## Note:
 Unfortunately there is no `main.py` for `trace_classifier` but it's not hard to implement it. It can be a menu and run the dedicated error detection but time was limited.
+
+## Machine Learning Approach Documentation Updates on Non-ML Approach
+
+## Components
+### large-language-model [ADDED]
+A `JupyterNotebook` file that after reading datasets, a `BertModel` is used to give us the appropriate embeddings for our current dataset.
+After tokenizing our data, we use the `Isolation Forest` model to predict any anomalies that occur in dataset. The important
+part is creating our data. We used all `Operation`, `Service`, and `Exception` to predict whether an anomaly is sighted or not.
+The `Exception` itself is consisted of `stacktrace of an exception`, `exception message`, and `exception type`.  
+
+### trace_classifier [UPDATED]
+
+
+```bash
+   python <FILE_NAME.py>
+```
+
+- **anomaly_detection.py**: Implemented `IsolationForest`, `K-Means`, `Auto Encoder`, `Variational Auto Encoder (VAE)`, and `Local Outlier Factor`
+for Machine Learning approach that detects any anomaly occurring in our services (and logs).
+
+
+## Plugins [UPDATED]
+### .live-plugins
+There are 6 plugins that can identify the developer for errors using LivePlugin format.
+In this folder, we have Kotlin Scripts regarding all detections which includes: `anomaly_detection.kts`, `dependency_analysis.kts`,
+`error_correlations.kts`, `long_traces.kts`, `n_plus_one.kts` , and `trace_error.kts`. The LivePlugin will load all the `.live-plugins`
+folder in startup since it is noted in the LivePlugin documentation.
+
+## Getting Started
+
+- The `llm_anomaly_detectoin.ipynb` which is a `Jupyter Notebook`, can be executed from itself. The appropriate imports regarding the `requirements.txt` file is implemented inside it. It only needs the Jupyter `kernel` which in PyCharm, it suggests downloading it from marketplace.
+- The `anomaly_detection.py` file can be executed as before. 
