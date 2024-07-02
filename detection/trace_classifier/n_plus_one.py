@@ -1,20 +1,6 @@
 import json
-from utils import JAEGER_LOG_PATH_WITH_ERROR
-
-
-def load_jaeger_trace(file_path: str) -> dict:
-    """
-    Load Jaeger trace data from a JSON file.
-
-    Args:
-        file_path (str): Path to the JSON file containing the Jaeger trace data.
-
-    Returns:
-        dict: The loaded Jaeger trace data.
-    """
-    with open(file_path, 'r') as trace_file:
-        jaeger_data = json.load(trace_file)
-    return jaeger_data
+from detection.utils import JAEGER_LOG_PATH_WITH_ERROR
+from detection.data_loader import DataLoader
 
 
 def detect_nplus1_queries(jaeger_data: dict) -> list:
@@ -36,7 +22,7 @@ def detect_nplus1_queries(jaeger_data: dict) -> list:
     """
     nplus1_issues = []
 
-    for trace in jaeger_data.get('data', []):
+    for trace in jaeger_data:
         spans = trace.get('spans', [])
         query_counts = {}
         trace_id = trace['traceID']
@@ -62,8 +48,7 @@ def detect_nplus1_queries(jaeger_data: dict) -> list:
 
 
 def main():
-    file_path = JAEGER_LOG_PATH_WITH_ERROR
-    jaeger_data = load_jaeger_trace(file_path)
+    jaeger_data = DataLoader(JAEGER_LOG_PATH_WITH_ERROR).get_traces()
     nplus1_issues = detect_nplus1_queries(jaeger_data)
 
     print("Detected N+1 Queries:")
