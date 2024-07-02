@@ -3,8 +3,8 @@ build/
 !cat-api/gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-./detection/__pycache__/
-
+./detection/__pycache__/*
+./detection/trace_classifier/__pycache__/*
 
 ### IntelliJ IDEA ###
 .idea/misc.xml
