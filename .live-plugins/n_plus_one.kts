@@ -7,7 +7,7 @@ show("Hello")
 val venvPython = "H:/Documents/Apply/Applications/TU Delft/Assessment/test-assignment/venv/Scripts/python.exe"
 
 // Define the Python script file
-val pythonScript = "H:/Documents/Apply/Applications/TU Delft/Assessment/test-assignment/detection/n_plus_one.py"
+val pythonScript = "H:/Documents/Apply/Applications/TU Delft/Assessment/test-assignment/detection/trace_classifier/n_plus_one.py"
 // Build the command to run the Python script using the virtual environment's Python interpreter
 val command = listOf(venvPython, pythonScript)
 

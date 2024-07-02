@@ -5,6 +5,8 @@ build/
 !**/src/test/**/build/
 ./detection/__pycache__/*
 ./detection/trace_classifier/__pycache__/*
+./detection/__pycache__/utils.cpython-310.pyc
+
 
 ### IntelliJ IDEA ###
 .idea/misc.xml
